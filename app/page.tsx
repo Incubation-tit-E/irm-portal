@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 type Student = {
   id: string;
@@ -17,12 +18,15 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-6 border-b border-gray-200 fixed w-full bg-white z-50">
+      <nav className="flex justify-between items-center p-6 border-b border-gray-200 fixed w-full bg-white z-50 max-h-[500px]">
         <div className="text-2xl font-bold tracking-wide">IRM Portal</div>
         <div className="space-x-3">
-          <Button className="bg-black text-white hover:bg-gray-800">
+          <Link
+            href={"/login"}
+            className="bg-black rounded-[7px] text-white px-4 p-2 font-bold hover:bg-gray-700"
+          >
             Login
-          </Button>
+          </Link>
         </div>
       </nav>
 
@@ -56,7 +60,7 @@ const HomePage: React.FC = () => {
                     <tr
                       key={student.id}
                       className={`transition ${
-                        index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                        index % 2 === 0 ? "bg-white" : "bg-gray-200"
                       } hover:bg-gray-100`}
                     >
                       <td className="p-3 text-sm">{student.id}</td>
